@@ -1,0 +1,17 @@
+OTF file für Outlook erstellen
+
+Outlook starten -> alt+f11 
+-> Makro erstellen und ausführen
+
+
+Sub MakeHTMLMsg()
+    Set objMsg = Application.CreateItem(olMailItem)
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile("C:\Users\Asus\Desktop\00_Oft_optimized_Run_simple.html", 1)
+    strText = ts.ReadAll
+    objMsg.HTMLBody = strText
+    objMsg.Display
+    Set fso = Nothing
+    Set ts = Nothing
+    Set objMsg = Nothing
+End Sub
